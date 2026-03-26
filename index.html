@@ -1,65 +1,99 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Bella+</title>
+<head>
 
-    <link rel="stylesheet" href="css/index.css" />
-    <link rel="icon" href="img/logo.png" />
-  </head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <body>
-    <header class="header">
-      <div class="logo">
-        <img src="img/logo.png" alt="Bella+" />
-      </div>
+<title>Bella+</title>
 
-      <div class="menu">
-        <select>
-          <option>Português</option>
-          <option>English</option>
-          <option>Espanhol</option>
-        </select>
+<link rel="stylesheet" href="css/index.css">
+<link rel="icon" href="img/logo.png">
 
-        <a href="pags/login.html">
-          <button class="btn-entrar">Entrar</button>
-        </a>
-      </div>
-    </header>
-    <hr />
-    <section class="banner">
-      <div class="banner-content">
-        <h1>Filmes, séries e tecnologia em um só lugar</h1>
+</head>
 
-        <p>Assista conteúdos exclusivos da Bella+ quando quiser.</p>
+<body>
 
-        <div class="botoes">
-          <button class="btn-vermelho">Começar agora</button>
+<header class="header">
 
-          <button class="btn-vermelho2">Saiba mais</button>
-        </div>
-      </div>
-    </section>
+<div class="logo">
+<img src="img/logo.png" alt="Bella+">
+</div>
 
-    <section class="tecnologia">
-      <h2>Top vídeos</h2>
-      <h2>Em alta</h2>
-      <h2>Top semanal</h2>
-      <h2>Tecnologia</h2>
-    </section>
+<div class="menu nav-actions">
 
-    <section class="sobre">
-      <h2>O que é a Bella+</h2>
+<select id="idioma">
+<option value="pt">Português</option>
+<option value="en">English</option>
+<option value="es">Español</option>
+</select>
 
-      <p>
-        A Bella+ é uma plataforma de streaming focada em filmes, séries e
-        tecnologia. Nosso objetivo é conectar entretenimento e inovação em uma
-        experiência moderna e acessível para todos.
-      </p>
-    </section>
+<button class="btn-entrar" id="loginButton">Entrar</button>
 
-    <footer>© 2026 BELLA+ - DESENVOLVIDO POR <b>IZABELLE SILVA</b></footer>
-  </body>
+<button class="btn-entrar oculto" id="logoutButton">Sair</button>
+
+<span id="userNome" class="oculto"></span>
+
+</div>
+
+</header>
+
+<hr>
+
+<section class="banner">
+
+<div class="banner-content">
+
+<h1 id="titulo">Filmes, séries e tecnologia em um só lugar</h1>
+
+<p id="subtitulo">
+Assista conteúdos exclusivos da Bella+ quando quiser.
+</p>
+
+<div class="botoes">
+
+<a href="pags/login.html">
+<button class="btn-vermelho" id="comecar">Começar agora</button>
+</a>
+
+<a href="#sobre">
+<button class="btn-vermelho2" id="saiba">Saiba mais</button>
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="tecnologia">
+
+<h2>Top vídeos</h2>
+<h2>Em alta</h2>
+<h2>Top semanal</h2>
+<h2>Tecnologia</h2>
+
+</section>
+
+<section class="sobre" id="sobre">
+
+<h2 id="sobreTitulo">O que é a Bella+</h2>
+
+<p id="sobreTexto">
+A Bella+ é uma plataforma de streaming focada em filmes, séries e tecnologia.
+Nosso objetivo é conectar entretenimento e inovação em uma experiência moderna
+e acessível para todos.
+</p>
+
+</section>
+
+<footer>
+© 2026 BELLA+ - DESENVOLVIDO POR <b>IZABELLE SILVA</b>
+</footer>
+
+<script src="js/index.js"></script>
+<script type="module" src="js/index_auth_nav.js"></script>
+
+</body>
 </html>
