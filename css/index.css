@@ -1,147 +1,161 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
 
-body {
-  background: black;
-  color: white;
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:black;
+color:white;
 }
 
 /* HEADER */
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 60px;
-  background: black;
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 60px;
+background:black;
 }
 
-.logo img {
-  height: 100px;
+.logo img{
+height:100px;
 }
 
 /* MENU */
 
-.menu {
-  display: flex;
-  gap: 15px;
-  align-items: center;
+.menu{
+display:flex;
+gap:15px;
+align-items:center;
 }
 
-.menu select {
-  background: black;
-  color: white;
-  border: 1px solid #444;
-  padding: 8px;
-  border-radius: 4px;
+.menu select{
+background:black;
+color:white;
+border:1px solid #444;
+padding:8px;
+border-radius:4px;
 }
 
 /* BOTÃO ENTRAR */
 
-.btn-entrar {
-  background: transparent;
-  border: 1px solid #e50914;
-  color: white;
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: 0.3s;
+.btn-entrar{
+background:transparent;
+border:1px solid #e50914;
+color:white;
+padding:8px 18px;
+border-radius:20px;
+cursor:pointer;
+transition:0.3s;
 }
 
-.btn-entrar:hover {
-  background: #e50914;
+.btn-entrar:hover{
+background:#e50914;
 }
 
 /* BANNER */
 
-.banner {
-  height: 80vh;
+.banner{
 
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)),
-    url("../img/cinema.jpg");
+height:80vh;
 
-  background-size: cover;
-  background-position: center;
+background-image:
+linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.9)),
+url("../img/fundo.jpg");
 
-  display: flex;
-  align-items: center;
+background-size:cover;
+background-position:center;
 
-  padding-left: 80px;
+display:flex;
+align-items:center;
+
+padding-left:80px;
+
 }
 
-.banner-content {
-  max-width: 600px;
+.banner-content{
+max-width:600px;
 }
 
-.banner h1 {
-  font-size: 60px;
-  margin-bottom: 20px;
+.banner h1{
+font-size:60px;
+margin-bottom:20px;
 }
 
-.banner p {
-  font-size: 20px;
-  margin-bottom: 30px;
+.banner p{
+font-size:20px;
+margin-bottom:30px;
 }
 
 /* BOTÕES */
 
-.botoes {
-  display: flex;
-  gap: 20px;
+.botoes{
+display:flex;
+gap:20px;
 }
 
 .btn-vermelho,
-.btn-vermelho2 {
-  background: #e50914;
-  border: none;
-  padding: 15px 30px;
-  color: white;
-  font-size: 18px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
+.btn-vermelho2{
+
+background:#e50914;
+border:none;
+padding:15px 30px;
+color:white;
+font-size:18px;
+border-radius:5px;
+cursor:pointer;
+transition:0.3s;
+
 }
 
 .btn-vermelho:hover,
-.btn-vermelho2:hover {
-  background: #ff2d2d;
+.btn-vermelho2:hover{
+background:#ff2d2d;
 }
 
 /* TECNOLOGIA */
 
-.tecnologia {
-  background: #111;
-  padding: 60px 80px;
-  font-size: 30px;
+.tecnologia{
+background:#111;
+padding:60px 80px;
+font-size:30px;
 }
 
 /* SOBRE */
 
-.sobre {
-  text-align: center;
-  padding: 100px 200px;
+.sobre{
+text-align:center;
+padding:100px 200px;
 }
 
-.sobre h2 {
-  font-size: 40px;
-  margin-bottom: 20px;
+.sobre h2{
+font-size:40px;
+margin-bottom:20px;
 }
 
-.sobre p {
-  font-size: 20px;
-  line-height: 1.6;
+.sobre p{
+font-size:20px;
+line-height:1.6;
 }
 
 /* FOOTER */
 
-footer {
-  text-align: center;
-  padding: 30px;
-  color: #e50914;
-  font-size: 18px;
+footer{
+text-align:center;
+padding:30px;
+color:#e50914;
+font-size:18px;
+}
+
+/* OCULTO */
+
+.oculto{
+display:none;
 }
