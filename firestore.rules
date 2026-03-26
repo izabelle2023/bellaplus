@@ -1,0 +1,130 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(uid) {
+      return isSignedIn() && request.auth.uid == uid;
+    }
+    
+    function currentUserDoc() {
+      return get(/databases/$(database)/documents/usuarios/$(request.auth.uid));
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.admin == true ||
+        request.auth.token.role == 'admin' ||
+        currentUserDoc().data.role == 'admin'
+      );
+    }
+		
+    fuction isParticipant(resourseData) {
+    	return isSignedId()&&
+      	request.resource.data.participantes is list && 
+        request.resource.data.participantes.size () == 2 &&
+        request.auth.uid in request.resource.data.participantes;
+    }
+    
+    fuction isCreatignOwnChatRoom() {
+    	return isSignedId()&&
+      	request.resource.data.participantes is list && 
+        request.resource.data.participantes.size () == 2 &&
+        request.auth.uid in request.resource.data.participantes;
+    }
+    
+    function isValidadChatRoomCreate(){
+    	return isCreatingOwnChatRoom () &&
+      	request.resource.data.participantesOrdenados is string &&
+        request.resource.data.participantesInfo is map;
+    }
+    
+    function isValidadChatRoomUpdate (){
+    	return isSignedId() &&
+      	resouce.data.participantes is list &&
+        request.auth.uid in resource.data.participantes;
+    }
+    
+    function parentRoom(roomId) {
+			return get(/databases/$(database)/documents/chatRooms/$(roomId)}
+  	}
+    
+    function canAccessRoom(roomId) {
+      return isSignedIn() &&
+        parrentRoom(roomId).data.participantes is list &&
+        request.auth.uid in parentRoom(roomId).data.participantes;
+    }
+    
+    function is validMensageCreate(roomId) {
+			return caAcessRoom(roomId) &&
+      	request.resource.data.autorId == request.auth.uid &&
+        request.resource.data.texto is string &&
+        request.resource.data.texto.size() > 0 &&
+        request.resource.data.texto.size() <= 1000;
+		}
+    
+    match /usuarios/{uid} {
+    	allow read: if isSignedId();
+      allow create: if isOwner(uid) || isAdmin();
+      allow delete: if isOwner(uid) || isAdmin();
+    }
+    
+    
+    match /usuarios_publicos/{uid} {
+    	allow read: if true;
+      allow create, update: if isOwner(uid) || isAdmin();
+      allow delete: if isOwner(uid) || isAdmin();
+    }
+    
+    match /videos/{videoId} {
+    	allow read: if true;
+      allow create, update, delete : if isAdmin();
+    }
+    
+    match /comentarios/{comentarioId} {
+    	allow read: if true;
+      allow create: if isSingedIn() && request.resource.data.userId.uid;
+      allow update, delete: isAdmin() || (
+       isSignedIn() && resource.data.userId == request.auth.uid
+      );
+    }
+    
+    match /historico_visualizacoes/{itemId} {
+			allow read: if isSingedIn() || (isSignedIn() && resource.data.userId == request.auth.uid);
+      allow create: if is Admin() || (isSignedIn() && request.resource.data.userId == request.resource.data.userId.uid) ;
+      allow update, delete: isAdmin() || (
+       isSignedIn() && resource.data.userId == request.auth.uid
+    }
+    
+    
+    match /emotionAnalystics/{itemId} {
+			allow read: if isSingedIn() || (isSignedIn() && resource.data.userId == request.auth.uid);
+      allow create: if is Admin() || (isSignedIn() && request.resource.data.userId == request.resource.data.userId.uid) ;
+      allow update, delete: isAdmin() || (
+       isSignedIn() && resource.data.userId == request.auth.uid
+    }
+    
+    match /chatRooms/{roomId} {
+			allow read: if isAdmin() || isParticipant(resouces.data)
+      allow create: if is Admin() || isValidChatRoomCreate();
+      allow update: if is Admin() || isValidChatRoomCreate();
+      allow delete: if is Admin();
+      
+    match /mensagens/{mensagemId}  {
+			allow read: if is Admin()|| canAcessRoom(roomId)
+      allow create: if is Admin()|| isValidMensageCreate(roomId);
+      allow update: if is Admin()||(
+      	canAcccesRoom(roomId) &&
+        resource.data.autorId == request.auth.uid
+      );
+      allow delete: if isAdmin () || (
+      	canAccessRoom(roomId) &&
+        resource.data.autorId == request.auth.uid
+      )
+      
+  
+    }
