@@ -44,7 +44,7 @@ function garantirBotaoAdmin() {
     adminButton.style.border = "1px solid #e50914";
     adminButton.style.color = "#fff";
     adminButton.addEventListener("click", () => {
-      window.location.href = "/admin/dashboard.html";
+      window.location.href = "/adm/dashboard.html";
     });
 
     navActions.insertBefore(adminButton, logoutButton || loginButton || null);
@@ -107,7 +107,7 @@ async function atualizarNavbar(user) {
 
 if (loginButton) {
   loginButton.addEventListener("click", () => {
-    window.location.href = "/login.html";
+    window.location.href = "/pags/login.html";
   });
 }
 
@@ -117,7 +117,7 @@ if (logoutButton) {
       await signOut(auth);
       localStorage.removeItem("faceLoginUser");
       localStorage.removeItem("faceLoginEmail");
-      window.location.href = "/login.html";
+      window.location.href = "/pags/login.html";
     } catch (error) {
       console.error("[Navbar] Erro ao sair:", error);
       alert("Não foi possível sair agora.");
