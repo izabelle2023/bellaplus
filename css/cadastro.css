@@ -1,0 +1,111 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background-color: #141414;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+select, .btn-entrar {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-entrar {
+    background-color: red;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cadastro-container {
+    max-width: 400px;
+    margin: 80px auto;
+    background: rgba(0,0,0,0.85);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    text-align: center;
+}
+
+.cadastro-container .logo-login img {
+    height: 60px;
+    margin-bottom: 20px;
+}
+
+.cadastro-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.cadastro-container label {
+    display: block;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: left;
+}
+
+.cadastro-container input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.btn-vermelho {
+    width: 100%;
+    margin-top: 20px;
+    padding: 12px;
+    background-color: red;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-vermelho:hover {
+    background-color: #f6121d;
+}
+
+.mensagem {
+    color: #ff4444;
+    margin-bottom: 10px;
+}
+
+.sobre {
+    padding: 40px;
+    background-color: #141414;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000;
+    font-size: 0.9rem;
+    color: #aaa;
+}
